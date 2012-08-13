@@ -1,0 +1,66 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Детский сад №87
+    = stylesheet_link_tag 'application', :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag params[:controller]
+  %body
+    %div{:align => "center", :style => "width:100%; height:100% "}
+      .border
+        .main_div
+          .main_table
+            .main_table_row
+              .left_1
+                = image_tag("spacer.gif", style: "width:27px; height:1px", align: "top", alt: "")
+              .main_left
+                = image_tag("spacer.gif", style: "width:100px; height:267px", align: "top", alt: "")
+                %br
+                  %br
+                    %br
+                      %br
+                        %br
+                          %br
+                            #links_with_style.widget_style
+                              %br
+                                %br
+                                  .cats_head_bg
+                                    %h2.h3 Страницы
+                                  %ul
+                                    - Article.roots.each do |art|
+                                      %li.page_item.page-item-2= link_to art.title, art
+                            #categories.widget_style
+                              .cats_head_bg
+                                %h2.h3 Фотографии
+                              %ul
+                                - Galery.all.each do |gal|
+                                  %li.cat-item.cat-item-1= link_to gal.name, galery_path(gal)
+              .left_2
+                = image_tag("spacer.gif", style: "width:22px; height:1px", align: "top", alt: "")
+              .main_cent
+                .co_name_bg
+                  .co_name
+                    %h1
+                      = link_to 'Муниципальное бюджетное дошкольное образовательное учреждение', root_path
+                      %br
+                      = link_to 'Детский сад общеразвивающего вида №87', root_path, class: 'main-name'
+                = image_tag("spacer.gif", style: "width:100px; height:18px", align: "top", alt: "")
+                %br
+                %br
+                %br
+                %br
+                %br
+                %br
+                %br
+                .content_txt
+                  = yield
+              .right_1
+                = image_tag("spacer.gif", style: "width:100px; height:18px", align: "top", alt: "")
+          .footer
+            .footer_txt
+              %br
+                %br                  
+                  %font
+                    Создание и продвижение сайтов в Воронеже:
+                    %a{:href => "http://mlip.ru/", alt: 'Создание и продвижение сайтов в Воронеже: mlip.ru'} ARTLevelDesign

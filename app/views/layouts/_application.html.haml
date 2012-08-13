@@ -1,0 +1,50 @@
+!!!
+%html{:dir => "ltr", :lang => "ru-RU", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %title Детский сад № 140
+  = stylesheet_link_tag 'application', :media => "all"
+  = javascript_include_tag "application"
+  = javascript_include_tag params[:controller]
+  %body
+    #main-container.grade-kindergarten
+      #header
+        %h1 Муниципальное бюджетное дошкольное образовательное учреждение
+        %h1 "Детский сад общеразвивающего вида №140"
+      #content
+        #mid-container
+          #mininav-wrap
+            #grade-mininav
+              %ul
+                %li.kindergarten= link_to ' ', '#'
+                %li.first= link_to ' ', '#'
+                %li.second= link_to ' ', '#'
+                %li.third= link_to ' ', '#'
+                %li.fourth= link_to ' ', '#'
+                %li.fifth= link_to ' ', '#'
+            #med-rectad
+              %ul
+                %li
+                  %h2 Страницы и разделы сайта
+                  %ul
+                    - Article.roots.each do |art|
+                      %li= link_to art.title, art
+                %li
+                  %h2 Галлерея фотографий
+                  %ul
+                    - Galery.all.each do |gal|
+                      %li= link_to gal.name, galery_path(gal)
+            .clear
+        #game-sections
+          #section-letters
+            #section-letters-top
+            #section-letters-mid
+              = yield
+              .clear
+            #section-letters-bot
+    .footer
+      %br
+        %br
+          %ul.footer-nav
+            %li Создание и продвижение сайтов в Воронеже
+            %li.middot •
+            %li= link_to 'ARTLevelDesign', 'http://mlip.ru', title: 'Создание и продвижение сайтов в Воронеже: http://mlip.ru'
